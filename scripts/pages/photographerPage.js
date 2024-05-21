@@ -1,5 +1,6 @@
 // import Api from '../api/api.js';
 import { fetchData } from '../api/api.js';
+import { DATA_JSON_PATH } from '../constants.js';
 // import photographerCardCommons from "../templates/photographerElements.js";
 import MediaFactory from '../factories/mediaFactory.js';
 import createMediaCard from '../templates/mediaTemplate.js';
@@ -18,7 +19,7 @@ import { PORTRAIT_BASE_PATH } from '../constants.js';
 
 async function fetchPhotographerData(photographerId) {
 
-    const { photographers, media } = await fetchData('../../data/photographers.json');
+    const { photographers, media } = await fetchData(DATA_JSON_PATH);
 
     const photographer = photographers
         //.map(photographer => new Photographer(photographer))

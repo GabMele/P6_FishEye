@@ -1,5 +1,6 @@
 // import Api from '../api/api.js';
 import { fetchData } from '../api/api.js';
+import { DATA_JSON_PATH } from '../constants.js';
 // import photographerTemplate from '../templates/photographerTemplate.js';
 import PhotographerFactory from "../factories/photographerFactory.js";
 
@@ -8,7 +9,7 @@ async function fetchPhotographers() {
 
     // const photographersFetchDatas = new Api('../../data/photographers.json');
     // const { photographers } = await photographersFetchDatas.fetchData();
-    const { photographers } = await fetchData('../../data/photographers.json');
+    const { photographers } = await fetchData(DATA_JSON_PATH);
     return { photographers }
 }
 

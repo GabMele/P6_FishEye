@@ -11,6 +11,7 @@ const BASE_URL = isLocal ? '/' : '/P6_FishEye/';
 
 export const MEDIA_BASE_PATH = `${BASE_URL}assets/photographers/`; 
 export const PORTRAIT_BASE_PATH = `${BASE_URL}assets/photographers/Photographers-ID-Photos/`;
+export const DATA_JSON_PATH = `${BASE_URL}data/photographers.json`;
 
 console.log("window.location.hostname :" + window.location.hostname);
 console.log("BASE_URL : " + BASE_URL);
