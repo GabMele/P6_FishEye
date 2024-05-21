@@ -2,9 +2,13 @@
 <html>
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!--
+      <link href="css/photographer.css" rel="stylesheet" type="text/css" />
+    -->
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Fisheye - photographe </title>
   </head>
   <body>
@@ -12,26 +16,90 @@
       <img src="assets/images/logo.png" class="logo" />
     </header>
     <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
+
+
+      <section class="photographer-header">
+        <div class="photographer-info">
+
+        </div>
+
+        <button class="contact-button-open">Contactez-moi</button>
+
+        <div class="photographer-portrait-container">
+
+        </div>
+      </section>
+
+        <nav role="filter media">
+            <label for="sortOption">Trier par</label>
+            <select id="sortOption">
+                <option value="Popularity">Popularité</option>
+                <option value="Date">Date</option>
+                <option value="Title">Titre</option>
+            </select>
+        </nav>
+
+      <section class="medias-gallery">
+      </section>
+
     </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+
+    <aside>
+      <p class="photographer-sticky-resume">
+        <span class="cumulative-likes-counter"></span>
+        <span class="fas fa-heart" aria-hidden="true"></span>
+      </p>
+      <span class="daily-price"></span><span>€/jour</span>
+    </aside>
+
+    <div class="contact-modal-wrapper modal-wrapper">
+      <div class="contact-form-container">
+        <header class="header">
+          <h1 id="formTitle" class="title">
+            Contactez-moi
+            <p class="modal-photographer-name"></span>
+          </h2>
+          <span class="close-button close" aria-label="Fermer contact form" tabindex="0">
+            &#x2715; <!-- Unicode character for a cross -->
+          </span>
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
+        <form id="contactForm">
+          <div>
+              <label for="firstname">Prénom</label>
+              <input type="text" id="firstname" aria-label="Prénom" data-error="Le prénom est requis">
+              <div class="error-container" role="alert"></div> <!-- Error container for Prénom -->
+              
+              <label for="lastname">Nom</label>
+              <input type="text" id="lastname" aria-label="Nom" data-error="Le nom est requis">
+              <div class="error-container" role="alert"></div> <!-- Error container for Nom -->
+
+              <label for="email">Email</label>
+              <input type="email" id="email" aria-label="Email" data-error="L'email est requis">
+              <div class="error-container" role="alert"></div> <!-- Error container for Email -->
+
+              <label for="message">Votre message</label>
+              <textarea id="message" aria-label="Votre message" data-error="Le message est requis"></textarea>
+              <div class="error-container" role="alert"></div> <!-- Error container for Message -->
+          </div>
+          <input type="submit" value="Envoyer" class="contact-button-open send-button"  aria-label="Envoyer">
+      </form>
+      </div>
+    </div>
+
+
+    <div id="lightbox" aria-hidden="true" tabindex="-1" class="lightbox">
+      <div class="lightbox-content" role="dialog" aria-labelledby="lightbox-title">
+          <button id="close-lightbox" aria-label="Close lightbox">&times;</button>
+          <div class="lightbox-body">
+              <div id="lightbox-media-container"></div>
+              <div id="lightbox-title"></div>
+          </div>
+          <button id="prev-lightbox" aria-label="Previous image">&#10094;</button>
+          <button id="next-lightbox" aria-label="Next image">&#10095;</button>
+      </div>
+    </div>
+
+
+    <script src="scripts/pages/photographerPage.js" type="module"></script>
   </body>
 </html>
