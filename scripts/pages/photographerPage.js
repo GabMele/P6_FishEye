@@ -73,6 +73,7 @@ function handleLikes(medias) {
 
     // Event listener for like buttons
     likeButtons.forEach(button => {
+        button.setAttribute('tabindex', '0'); // Make buttons focusable
         button.addEventListener('click', () => {
             const mediaId = button.dataset.id; // Get the media ID from the button's dataset
             const media = medias.find(media => media.id == mediaId); // Find the corresponding media object
@@ -171,21 +172,63 @@ function handleContactForm() {
 
     const contactModal = document.querySelector('.contact-modal-wrapper');
 
+
+    document.addEventListener('keydown', event => {
+        if (contactModal.getAttribute('aria-hidden') === 'false') {
+            switch (event.key) {
+                case 'Escape':
+                    closeModal();
+                    break;
+            }
+        }
+    });
+
+
+
+
+
+    document.querySelector('.contact-button-open').setAttribute('tabindex', '0');
     document.querySelector('.contact-button-open').addEventListener('click', function() {
         //console.log("contact button clicked");
         contactModal.style.display = 'block';
+        contactModal.setAttribute('aria-hidden', 'false');
+        //contactModal.querySelector('header').focus();
+        contactModal.focus();
     });
 
-    document.querySelector('.close-button').addEventListener('click', function() {
-        const dialog = document.querySelector('.contact-modal-window');
+    // document.querySelector('.close-button').addEventListener('click', function() {
+    //     contactModal.style.display = 'none';
+    //     contactModal.setAttribute('aria-hidden', 'true');
+    // });
+    // document.querySelector('.close-button').addEventListener('keydown', function(event) {
+    //     if (event.key === 'Enter') {
+    //         contactModal.style.display = 'none';
+    //         contactModal.setAttribute('aria-hidden', 'true');
+    //     }
+    // });
+
+
+    const closeButton = document.querySelector('.close-button');
+    function closeModal() {
         contactModal.style.display = 'none';
+        contactModal.setAttribute('aria-hidden', 'true');
+    }
+    
+    closeButton.addEventListener('click', closeModal);
+    closeButton.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            closeModal();
+        }
     });
+
+
+
+
 
     // gab check
     //document.addEventListener('DOMContentLoaded', () => {
-        const form = document.getElementById('contactForm');
-      
-        form.addEventListener('submit', submitContactForm);
+    const form = document.getElementById('contactForm');  
+    form.addEventListener('submit', submitContactForm);
      // });
       
      function submitContactForm(event) {
@@ -278,7 +321,6 @@ function handleContactForm() {
     }
     
     function hideModal() {
-        const contactModal = document.querySelector('.contact-modal-wrapper');
         contactModal.style.display = 'none';
     }
 
@@ -342,16 +384,33 @@ function handleLightbox() {
     galleryItems.forEach((item, index) => {
         item.addEventListener('click', event => {
             event.preventDefault();
-
-            console.log("click : "+index);
-
+    
+            console.log("click : " + index);
             console.log(item);
-
+    
             openLightbox(index);
+        });
+    
+        item.addEventListener('keypress', event => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                openLightbox(index);
+            }
         });
     });
 
+
+
+
+
+
     closeLightboxButton.addEventListener('click', closeLightbox);
+    closeLightboxButton.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+            closeLightbox;
+        }
+    });
+
     prevLightboxButton.addEventListener('click', showPreviousImage);
     nextLightboxButton.addEventListener('click', showNextImage);
 
@@ -361,17 +420,36 @@ function handleLightbox() {
         }
     });
 
+    // document.addEventListener('keydown', event => {
+    //     if (lightbox.getAttribute('aria-hidden') === 'false') {
+    //         if (event.key === 'Escape') {
+    //             closeLightbox();
+    //         } else if (event.key === 'ArrowLeft') {
+    //             showPreviousImage();
+    //         } else if (event.key === 'ArrowRight') {
+    //             showNextImage();
+    //         }
+    //     }
+    // });
+
+
     document.addEventListener('keydown', event => {
         if (lightbox.getAttribute('aria-hidden') === 'false') {
-            if (event.key === 'Escape') {
-                closeLightbox();
-            } else if (event.key === 'ArrowLeft') {
-                showPreviousImage();
-            } else if (event.key === 'ArrowRight') {
-                showNextImage();
+            switch (event.key) {
+                case 'Escape':
+                    closeLightbox();
+                    break;
+                case 'ArrowLeft':
+                    showPreviousImage();
+                    break;
+                case 'ArrowRight':
+                //case 'Enter': // Handle Enter key to show the next image
+                    showNextImage();
+                    break;
             }
         }
     });
+
 }
 
 

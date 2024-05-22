@@ -179,7 +179,7 @@ aside .fas.fa-heart {
 
 
 .modal-wrapper{
-    z-index: 10;
+    z-index: 1000;
     display: none;
     justify-content: center;
     align-items: center;
