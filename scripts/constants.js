@@ -18,3 +18,5 @@ export const DATA_JSON_PATH = `${BASE_URL}data/photographers.json`;
 // console.log("MEDIA_BASE_PATH : " + MEDIA_BASE_PATH);
 // console.log("PORTRAIT_BASE_PATH : " + PORTRAIT_BASE_PATH);
 // console.log("DATA_JSON_PATH : " + DATA_JSON_PATH);
+
+console.log("v1.1");

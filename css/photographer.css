@@ -215,13 +215,6 @@ aside .fas.fa-heart {
 }
 
 
-.modal-wrapper header {
-    /*
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    */
-}
 
 .modal-wrapper .header {
     align-items: baseline;

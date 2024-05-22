@@ -55,7 +55,7 @@ export class PhotographerCard extends PhotographerBase {
         const photographerInfo = document.createElement( 'figcaption' );
 
         const h2name = document.createElement( 'h2' );
-        h2name.innerHTML = this.nameElement.innerHTML;
+        h2name.textContent = this.nameElement.textContent;
         photographerInfo.appendChild(h2name);
         photographerInfo.appendChild(this.divInfo);
         figure.appendChild(photographerInfo);
