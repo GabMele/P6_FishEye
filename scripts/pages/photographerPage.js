@@ -61,6 +61,17 @@ function displayMediaGallery(medias, photographerFirstName) {
         const mediaCardDOM = createMediaCard(media, photographerFirstName);
         mediasSection.appendChild(mediaCardDOM);
     });
+
+    // console.log("before handleLikes(medias)");
+    // console.log(mediasSection)
+
+    handleLikes(medias);
+
+    // console.log("AFTER handleLikes(medias)");
+    // console.log(mediasSection)
+
+    handleLightbox();
+
 }
 
 
@@ -68,18 +79,24 @@ function displayMediaGallery(medias, photographerFirstName) {
 function handleLikes(medias) {
     const likeButtons = document.querySelectorAll('.like-button');
 
-    // Update total likes initially
-    // updateTotalLikes(medias);
-
-    // Event listener for like buttons
     likeButtons.forEach(button => {
+        const mediaId = button.dataset.id;
+        const media = medias.find(media => media.id == mediaId);
+
+        // Restore liked state from media object
+        if (media.liked) {
+            button.classList.add("liked", "fas");
+            button.classList.remove("far");
+            button.setAttribute('aria-pressed', 'true');
+        }
+
         button.setAttribute('tabindex', '0'); // Make buttons focusable
         button.addEventListener('click', () => {
-            const mediaId = button.dataset.id; // Get the media ID from the button's dataset
-            const media = medias.find(media => media.id == mediaId); // Find the corresponding media object
-
             const isLiked = button.classList.contains("liked");
+
             media.likes += isLiked ? -1 : 1;
+            media.liked = !isLiked; // Update liked state in media object
+
             button.classList.toggle("liked");
             button.classList.toggle('fas');
             button.classList.toggle('far');
@@ -119,10 +136,22 @@ function updateTotalLikes(medias) {
 function sortMediaGallery(medias, sortType, photographerFirstName) {
     
     const sortedMedias = [...medias];
+
+    //onst sortedMedias = JSON.parse(JSON.stringify(medias));
+
     //const sortedMedias = [...photographerMedias];
 
     // Sort the copied array based on the sortType
     // console.log("sorttype : " + sortType);
+
+
+    console.log("photographerFirstName : " + photographerFirstName);
+    console.log("BEFORE SORTING medias : ----------- ");
+    console.log(medias);
+    // console.log("sortedMedias : -------- ");
+    // console.log(sortedMedias);
+
+
 
     sortedMedias.sort((a, b) => {
         switch (sortType) {
@@ -142,11 +171,27 @@ function sortMediaGallery(medias, sortType, photographerFirstName) {
         }
     });
 
+
+    // sortedMedias.forEach(media => {
+    //     media.likes = medias.find(m => m.id === media.id).likes;
+    // });
+
+    console.log("AFTER SORTING medias : ----------- ");
+
     // Clear the current media gallery
     //const mediasSection = document.querySelector(".medias-gallery");
     //mediasSection.innerHTML = "";
 
+    console.log("AFTER SORTING medias but before handlelikes : ----------- ");
+    console.log(medias);
+
+
+
+
+    console.log("AFTER SORTING after handlelikes medias : ----------- ");
+
     displayMediaGallery(sortedMedias, photographerFirstName);
+    // handleLikes(sortedMedias);
 
 }
 
@@ -517,7 +562,8 @@ async function init() {
     displayMediaGallery(photographerMedias, photographerFirstName);
 
     updateTotalLikes(photographerMedias);
-    handleLikes(photographerMedias);
+    
+    //handleLikes(photographerMedias);
 
     handleContactForm();
 

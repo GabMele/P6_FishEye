@@ -6,6 +6,7 @@ class Media {
 		this.photographerId = data.photographerId;
 		this.title = data.title;
 		this.likes = data.likes;
+		this.liked = false;
 		this.date = data.date;
 		this.price = data.price;
 		// this.firstName = firstName;
