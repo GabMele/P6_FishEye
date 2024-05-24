@@ -19,9 +19,5 @@ export const DATA_JSON_PATH = `${BASE_URL}data/photographers.json`;
 // console.log("PORTRAIT_BASE_PATH : " + PORTRAIT_BASE_PATH);
 // console.log("DATA_JSON_PATH : " + DATA_JSON_PATH);
 
-console.log(`FishEye - v1.2 : 
-    The \"liked\" state (heart icon) is now stored in the media array, 
-    so it's not lost after media sorting 
-    (sorting function call displayMedia function that regenerate the DOM).
-    TODO : final tests, revision, cleaning`);
+console.log(`FishEye - v1.3 :`);
 console.log("----------------------------")

@@ -78,6 +78,27 @@ h1 {
     padding-bottom: 150px;
 }
 
+
+
+
+
+.gallery-item img, .gallery-item video {
+    transition: opacity 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+
+.gallery-item img:hover,
+.gallery-item video:hover {
+    opacity: 0.9;
+    transform: scale(1.03);
+}
+
+
+
+
+
+
+
 .gallery-item img, .gallery-item video {
     cursor: pointer;
 }
@@ -206,10 +227,10 @@ aside .fas.fa-heart {
     max-width: 480px;
     transform: translateY(150px);
     opacity: 0;
-    animation: fadeIn .5s ease-in-out forwards;
+    animation: fadeInSlideUp .5s ease-in-out forwards;
 }
 
-@keyframes fadeIn {
+@keyframes fadeInSlideUp {
     from { opacity: 0; }
     to   { opacity: 1; transform: translateY(50px); }
 }
@@ -347,7 +368,7 @@ form input {
 
 
 #lightbox {
-    display: none;
+    /* display: none; */
     position: fixed;
     top: 0;
     left: 0;
@@ -357,12 +378,21 @@ form input {
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
 
+    transform: translateY(50%); /* Start off-screen at the bottom */
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 
 }
 
+
+
 #lightbox[aria-hidden="false"] {
     display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Slide in from the bottom */
 }
 
 .lightbox-content {
@@ -376,57 +406,12 @@ form input {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
 
-/*
+    transition: transform 0.3s ease-in-out;
 
-#close-lightbox, #prev-lightbox, #next-lightbox {
-    position: absolute;
-    top: 10px;
-    background: none;
-    border: none;
-    font-size: 4rem;
-    color: var(--red);
-    cursor: pointer;
 }
 
 
-#close-lightbox {
-    right: 10px;
-}
-
-#prev-lightbox {
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-#next-lightbox {
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-*/
-
-/*
-#close-lightbox {
-    top: 10px;
-    right: 10px;
-}
-
-#prev-lightbox, #next-lightbox {
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-#prev-lightbox {
-    left: 20px;
-}
-
-#next-lightbox {
-    right: 20px;
-}
-*/
 
 #close-lightbox, #prev-lightbox, #next-lightbox {
     background: none;
@@ -441,6 +426,8 @@ form input {
     top: 10px;
     right: 30px;
 }
+
+
 
 #prev-lightbox {
     top: 50%;
@@ -459,8 +446,6 @@ form input {
 
 
 
-
-
 .lightbox-body {
     display: flex;
     flex-direction: column;
@@ -470,9 +455,26 @@ form input {
 }
 
 
+#lightbox-media-container {
+    transition: transform 0.5s ease-in-out; /* Set transition duration (optional) */
+}
+
+
+
+
+
+
+
 #lightbox-media-container img, #lightbox-media-container video {
     max-width: 100%;
     max-height: 80vh; /* Ensure the image/video fits within the viewport height */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity change */
+}
+
+
+#lightbox-media-container img:hover,
+#lightbox-media-container video:hover {
+    opacity: 0.8; /* Set the opacity to 0.8 on hover */
 }
 
 

@@ -1,4 +1,4 @@
-import { Image, Video } from '../models/mediaClasses.js';
+// import { Image, Video } from '../models/mediaClasses.js';
 
 export default 
 function createMediaCard(media, photographerFirstName) {

@@ -13,7 +13,7 @@ import PhotographerFactory from '../factories/photographerFactory.js';
 //import testimport from '../templates/photographerNewTemplate.js';
 // import PhotographerFactory from '../factories/photographerFactory.js';
 
-import { PORTRAIT_BASE_PATH } from '../constants.js';
+// import { PORTRAIT_BASE_PATH } from '../constants.js';
 // import Photographer from "../models/PhotographerClass.js";
 
 
@@ -198,19 +198,6 @@ function sortMediaGallery(medias, sortType, photographerFirstName) {
 
 
 
-// function handleLightbox() {
-//     const mediaElements = document.querySelectorAll('.medias-gallery img');
-//     images.forEach((img, index) => {
-//         img.tabIndex = 0; // Rend l'image focusable
-//         img.addEventListener('click', () => openLightbox(index));
-//         img.addEventListener('keydown', (event) => {
-//             if (event.key === 'Enter') {
-//                 openLightbox(index);
-//             }
-//         });
-//     });
-//   }
-
 
 
 function handleContactForm() {
@@ -389,6 +376,7 @@ function handleLightbox() {
     const galleryItems = document.querySelectorAll('.gallery-item');
     let currentIndex = 0;
 
+
     const openLightbox = (index) => {
         const item = galleryItems[index];
         const imageElement = item.querySelector('img');
@@ -413,8 +401,34 @@ function handleLightbox() {
         lightboxTitle.textContent = imageTitle;
         lightbox.setAttribute('aria-hidden', 'false');
         lightbox.focus();
+
+
+
+        // // Apply transform for slide animation
+        // console.log("current index : " + currentIndex);
+        // console.log("index : " + index);
+
+        // const isNext = currentIndex < index;
+        // const transformValue = isNext? 'translateX(110%)' : 'translateX(-110%)';
+        // lightboxMediaContainer.style.transform = transformValue;
+
+        // // Reset transform after animation completes
+        // setTimeout(() => {
+        //     lightboxMediaContainer.style.transform = '';
+        // }, 500); // Match the transition duration
+
         currentIndex = index;
     };
+
+
+
+
+
+
+
+
+
+
 
     const closeLightbox = () => {
         lightbox.setAttribute('aria-hidden', 'true');
@@ -423,12 +437,15 @@ function handleLightbox() {
     const showPreviousImage = () => {
         currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
         openLightbox(currentIndex);
+
     };
 
     const showNextImage = () => {
         currentIndex = (currentIndex + 1) % galleryItems.length;
         openLightbox(currentIndex);
     };
+
+
 
     galleryItems.forEach((item, index) => {
         item.addEventListener('click', event => {
@@ -449,89 +466,47 @@ function handleLightbox() {
     });
 
 
-
     prevLightboxButton.addEventListener('click', showPreviousImage);
     nextLightboxButton.addEventListener('click', showNextImage);
 
 
-
-    /*
-    closeLightboxButton.addEventListener('click', closeLightbox);
-    closeLightboxButton.addEventListener('keydown', function(event) {
-        if (event.key === 'Enter' || event.key === ' ') {
-            closeLightbox;
+    function handleKeydown(event) {
+        if (lightbox.getAttribute('aria-hidden') === 'false') {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            } else if (event.key === 'ArrowLeft') {
+                showPreviousImage();
+            } else if (event.key === 'ArrowRight') {
+                showNextImage();
+            } else if (event.key === 'Enter') {
+                if (document.activeElement === closeLightboxButton) {
+                    closeLightbox();
+                } else {
+                    showNextImage();
+                }
+            } else if (event.key === ' ') {
+                if (document.activeElement === closeLightboxButton) {
+                    closeLightbox();
+                }
+            }
         }
-    });
+    }
 
+    // Event listener for closeLightboxButton click
+    closeLightboxButton.addEventListener('click', closeLightbox);
 
+    // Event listener for keydown events on closeLightboxButton
+    closeLightboxButton.addEventListener('keydown', handleKeydown);
+
+    // Event listener for clicks on the lightbox
     lightbox.addEventListener('click', event => {
         if (event.target === lightbox || event.target === closeLightboxButton) {
             closeLightbox();
         }
     });
 
-
-
-    document.addEventListener('keydown', event => {
-        if (lightbox.getAttribute('aria-hidden') === 'false') {
-            switch (event.key) {
-                case 'Escape':
-                    closeLightbox();
-                    break;
-                case 'ArrowLeft':
-                    showPreviousImage();
-                    break;
-                case 'ArrowRight':
-                case 'Enter': // Handle Enter key to show the next image
-                    showNextImage();
-                    break;
-            }
-        }
-    });
-*/
-
-function handleKeydown(event) {
-    if (lightbox.getAttribute('aria-hidden') === 'false') {
-        if (event.key === 'Escape') {
-            closeLightbox();
-        } else if (event.key === 'ArrowLeft') {
-            showPreviousImage();
-        } else if (event.key === 'ArrowRight') {
-            showNextImage();
-        } else if (event.key === 'Enter') {
-            if (document.activeElement === closeLightboxButton) {
-                closeLightbox();
-            } else {
-                showNextImage();
-            }
-        } else if (event.key === ' ') {
-            if (document.activeElement === closeLightboxButton) {
-                closeLightbox();
-            }
-        }
-    }
-}
-
-// Event listener for closeLightboxButton click
-closeLightboxButton.addEventListener('click', closeLightbox);
-
-// Event listener for keydown events on closeLightboxButton
-closeLightboxButton.addEventListener('keydown', handleKeydown);
-
-// Event listener for clicks on the lightbox
-lightbox.addEventListener('click', event => {
-    if (event.target === lightbox || event.target === closeLightboxButton) {
-        closeLightbox();
-    }
-});
-
-// Global keydown event listener
-document.addEventListener('keydown', handleKeydown);
-
-
-
-
-
+    // Global keydown event listener
+    document.addEventListener('keydown', handleKeydown);
 
 
 }
