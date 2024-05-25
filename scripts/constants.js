@@ -19,5 +19,5 @@ export const DATA_JSON_PATH = `${BASE_URL}data/photographers.json`;
 // console.log("PORTRAIT_BASE_PATH : " + PORTRAIT_BASE_PATH);
 // console.log("DATA_JSON_PATH : " + DATA_JSON_PATH);
 
-console.log(`FishEye - v1.3 :`);
+console.log(`FishEye - v1.4 :`);
 console.log("----------------------------")

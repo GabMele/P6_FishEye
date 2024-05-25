@@ -239,7 +239,7 @@ aside .fas.fa-heart {
 
 .modal-wrapper .header {
     align-items: baseline;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     /*
     display: flex;
     justify-content: space-between;
@@ -313,7 +313,7 @@ form#contactForm {
     margin-bottom: 10px;
     padding: 8px;
     font-size: 1.3rem;
-    line-height: 2rem;
+    /*line-height: 2rem;*/
     border-radius: 5px;
     border-style: hidden;
   }

@@ -198,8 +198,6 @@ function sortMediaGallery(medias, sortType, photographerFirstName) {
 
 
 
-
-
 function handleContactForm() {
 
     const contactModal = document.querySelector('.contact-modal-wrapper');
@@ -218,6 +216,9 @@ function handleContactForm() {
     document.querySelector('.contact-button-open').addEventListener('click', function() {
         //console.log("contact button clicked");
         contactModal.style.display = 'block';
+
+        document.body.style.overflow = 'hidden';
+
         contactModal.setAttribute('aria-hidden', 'false');
         //contactModal.querySelector('header').focus();
         contactModal.focus();
@@ -239,6 +240,7 @@ function handleContactForm() {
     function closeModal() {
         contactModal.style.display = 'none';
         contactModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = 'auto';
     }
     
     closeButton.addEventListener('click', closeModal);
@@ -400,6 +402,7 @@ function handleLightbox() {
 
         lightboxTitle.textContent = imageTitle;
         lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
         lightbox.focus();
 
 
@@ -432,6 +435,7 @@ function handleLightbox() {
 
     const closeLightbox = () => {
         lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = 'auto';
     };
 
     const showPreviousImage = () => {
