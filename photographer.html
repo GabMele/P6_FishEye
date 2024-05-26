@@ -1,102 +1,89 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="css/photographer.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fisheye - photographe</title>
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/photographer.css" rel="stylesheet">
+</head>
+<body>
     <header>
-      <a href="index.html" aria-label="Accéder à la page d'accueil" title="Page d'accueil">
-        <img src="assets/images/logo.png" class="logo" alt="Logo de Fisheye" />
-      </a>
+        <a href="index.html" aria-label="Accéder à la page d'accueil" title="Page d'accueil">
+            <img src="assets/images/logo.png" class="logo" alt="Logo de Fisheye" />
+        </a>
     </header>
     <main id="main">
-
-      <section class="photographer-header">
-        <div class="photographer-info">
-        </div>
-
-        <button class="contact-button-open" aria-label="Ouvrir le formulaire de contact">Contactez-moi</button>
-
-        <div class="photographer-portrait-container">
-        </div>
-      </section>
-
-      <nav role="navigation" aria-label="Navigation pour trier les médias">
-        <label for="sortOption">Trier par</label>
-        <select id="sortOption" aria-label="Sélectionner la méthode de tri">
-            <option value="Popularity">Popularité</option>
-            <option value="Date">Date</option>
-            <option value="Title">Titre</option>
-        </select>
-      </nav>
-
-      <section class="medias-gallery">
-      </section>
-
+        <section class="photographer-header">
+            <div class="photographer-info"></div>
+            <button class="contact-button-open" aria-label="Ouvrir le formulaire de contact">Contactez-moi</button>
+            <div class="photographer-portrait-container"></div>
+        </section>
+        <nav role="navigation" aria-label="Navigation pour trier les médias">
+            <label for="sortOption">Trier par</label>
+            <select id="sortOption" aria-label="Sélectionner la méthode de tri">
+                <option value="Popularity">Popularité</option>
+                <option value="Date">Date</option>
+                <option value="Title">Titre</option>
+            </select>
+        </nav>
+        <section class="medias-gallery"></section>
     </main>
-
     <aside>
-      <p class="photographer-sticky-resume">
-        <span class="cumulative-likes-counter" aria-live="off" aria-label="Nombre total de likes"></span>
-        <span class="fas fa-heart" aria-hidden="true"></span>
-      </p>
-      <span class="daily-price" aria-label="Tarif par jour"></span><span>€/jour</span>
+        <p class="photographer-sticky-resume">
+            <span class="cumulative-likes-counter" aria-live="off" aria-label="Nombre total de likes"></span>
+            <span class="fas fa-heart" aria-hidden="true"></span>
+        </p>
+        <span class="daily-price" aria-label="Tarif par jour"></span><span>€/jour</span>
     </aside>
-
     <div class="contact-modal-wrapper modal-wrapper" tabindex="-1" role="dialog" aria-labelledby="formTitle" aria-hidden="true">
-      <div class="contact-form-container">
-        <header class="header">
-          <h1 id="formTitle" class="title">
-            Contactez-moi
-            <p class="modal-photographer-name"></span>
-          </h1>
-          <span class="close-button close" aria-label="Fermer le formulaire de contact" tabindex="0">
-            &#x2715; <!-- Unicode character for a cross -->
-          </span>
-        </header>
-        <form id="contactForm" aria-label="Formulaire de contact">
-          <div>
-              <label for="firstname">Prénom</label>
-              <input type="text" id="firstname" aria-label="Prénom" data-error="Le prénom est requis">
-              <div class="error-container" role="alert"></div> <!-- Error container for Prénom -->
-              
-              <label for="lastname">Nom</label>
-              <input type="text" id="lastname" aria-label="Nom" data-error="Le nom est requis">
-              <div class="error-container" role="alert"></div> <!-- Error container for Nom -->
-
-              <label for="email">Email</label>
-              <input type="email" id="email" aria-label="Email" data-error="L'email est requis">
-              <div class="error-container" role="alert"></div> <!-- Error container for Email -->
-
-              <label for="message">Votre message</label>
-              <textarea id="message" aria-label="Votre message" data-error="Le message est requis"></textarea>
-              <div class="error-container" role="alert"></div> <!-- Error container for Message -->
-          </div>
-          <input type="submit" value="Envoyer" class="contact-button-open send-button"  aria-label="Envoyer">
-      </form>
-      </div>
+        <div class="contact-form-container">
+            <header class="header">
+                <h1 id="formTitle" class="title">
+                    Contactez-moi
+                    <p class="modal-photographer-name"></p>
+                </h1>
+                <span class="close-button close" aria-label="Fermer le formulaire de contact" tabindex="0">
+                    &#x2715;
+                </span>
+            </header>
+            <form id="contactForm" aria-label="Formulaire de contact">
+                <div>
+                    <label for="firstname">Prénom</label>
+                    <input type="text" id="firstname" aria-label="Prénom" data-error="Le prénom est requis">
+                    <div class="error-container" role="alert"></div>
+                    
+                    <label for="lastname">Nom</label>
+                    <input type="text" id="lastname" aria-label="Nom" data-error="Le nom est requis">
+                    <div class="error-container" role="alert"></div>
+                    
+                    <label for="email">Email</label>
+                    <input type="email" id="email" aria-label="Email" data-error="L'email est requis">
+                    <div class="error-container" role="alert"></div>
+                    
+                    <label for="message">Votre message</label>
+                    <textarea id="message" aria-label="Votre message" data-error="Le message est requis"></textarea>
+                    <div class="error-container" role="alert"></div>
+                </div>
+                <input type="submit" value="Envoyer" class="contact-button-open send-button" aria-label="Envoyer">
+            </form>
+        </div>
     </div>
-
-
     <div id="lightbox" class="lightbox" aria-hidden="true" tabindex="-1" role="dialog">
-      <div class="lightbox-content" role="dialog" aria-labelledby="lightbox-title">
-          <button id="close-lightbox" aria-label="Fermer la lightbox">&times;</button>
-          <div class="lightbox-body">
-              <div id="lightbox-media-container"></div>
-              <div id="lightbox-title"></div>
-          </div>
-          <button id="prev-lightbox" aria-label="Image précédente">&#10094;</button>
-          <button id="next-lightbox" aria-label="Image suivante">&#10095;</button>
-      </div>
+        <div class="lightbox-content" role="dialog" aria-labelledby="lightbox-title">
+            <button id="close-lightbox" aria-label="Fermer la lightbox">&times;</button>
+            <div class="lightbox-body">
+                <div id="lightbox-media-container"></div>
+                <div id="lightbox-title"></div>
+            </div>
+            <button id="prev-lightbox" aria-label="Image précédente">&#10094;</button>
+            <button id="next-lightbox" aria-label="Image suivante">&#10095;</button>
+        </div>
     </div>
-
-
     <script src="scripts/pages/photographerPage.js" type="module"></script>
-  </body>
+</body>
 </html>
+
