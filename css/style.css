@@ -42,10 +42,6 @@ h1 {
 }
 
 .photographers-section figure {
-/*    justify-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;*/
     flex-direction: column;
     text-align: center;
 
@@ -64,7 +60,6 @@ h1 {
     width: 200px;
     border-radius: 50%;
     object-fit: cover;
-    /* justify-self: center; */
 }
 
 .photographers-section p {

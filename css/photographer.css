@@ -4,9 +4,6 @@ h1 {
     font-size: 2.8rem;
     font-weight: normal;
     line-height: 3rem;
-    /*
-    margin: 0;
-    */
 }
 
 .photographer-header {
@@ -23,7 +20,6 @@ h1 {
 
 .photographer-info .photographer-name {
     color: var(--red);
-    /* white-space: nowrap; */
     margin: 0;
 }
 
@@ -65,11 +61,6 @@ h1 {
 
 
 .medias-gallery {
- /*   display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center; */
-
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-between;
@@ -77,9 +68,6 @@ h1 {
     margin: 40px 0;
     padding-bottom: 150px;
 }
-
-
-
 
 
 .gallery-item img, .gallery-item video {
@@ -92,11 +80,6 @@ h1 {
     opacity: 0.9;
     transform: scale(1.03);
 }
-
-
-
-
-
 
 
 .gallery-item img, .gallery-item video {
@@ -236,14 +219,9 @@ aside .fas.fa-heart {
 }
 
 
-
 .modal-wrapper .header {
     align-items: baseline;
     margin-bottom: 1rem;
-    /*
-    display: flex;
-    justify-content: space-between;
-    */
     width: 100%;
 }
 
@@ -251,13 +229,6 @@ aside .fas.fa-heart {
     color: black;
     font-size: 2.5rem;
     line-height: 0.6rem;
-    /*
-    margin: 0;
-    font-size: 36px;
-    font-weight: normal;
-    text-align: center;
-    margin-bottom: 30px;
-    */
 }
 
 
@@ -313,7 +284,6 @@ form#contactForm {
     margin-bottom: 10px;
     padding: 8px;
     font-size: 1.3rem;
-    /*line-height: 2rem;*/
     border-radius: 5px;
     border-style: hidden;
   }
@@ -335,38 +305,6 @@ form#contactForm {
     margin-bottom: 0px;
 }
 
-
-/*
-form h2 {
-    font-size: 2rem;
-    font-weight: normal;
-    text-align: center;
-}
-
-
-form label {
-    color: #312E2E;
-    font-size: 36px;
-}
-
-form div {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: self-start;
-    margin-bottom: 26px;
-}
-
-form input {
-    width: 100%;
-    height: 68px;
-    border: none;
-    border-radius: 5px;
-}
-
-*/
-
-
 #lightbox {
     /* display: none; */
     position: fixed;
@@ -380,12 +318,9 @@ form input {
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
-
     transform: translateY(50%); /* Start off-screen at the bottom */
     transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-
 }
-
 
 
 #lightbox[aria-hidden="false"] {
@@ -406,9 +341,7 @@ form input {
     display: flex;
     flex-direction: column;
     align-items: center;
-
     transition: transform 0.3s ease-in-out;
-
 }
 
 
@@ -428,7 +361,6 @@ form input {
 }
 
 
-
 #prev-lightbox {
     top: 50%;
     left: 30px;
@@ -440,10 +372,6 @@ form input {
     right: 30px;
     transform: translateY(-50%);
 }
-
-
-
-
 
 
 .lightbox-body {
@@ -460,11 +388,6 @@ form input {
 }
 
 
-
-
-
-
-
 #lightbox-media-container img, #lightbox-media-container video {
     max-width: 100%;
     max-height: 80vh; /* Ensure the image/video fits within the viewport height */
@@ -476,7 +399,6 @@ form input {
 #lightbox-media-container video:hover {
     opacity: 0.8; /* Set the opacity to 0.8 on hover */
 }
-
 
 
 #lightbox-title {
