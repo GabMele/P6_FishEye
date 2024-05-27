@@ -80,7 +80,7 @@ export default function handleContactForm() {
         if (isValid) {
             logFormData();
             resetForm();
-            hideModal();
+            closeModal();
         }
         return false;
     }
@@ -192,10 +192,4 @@ export default function handleContactForm() {
         document.getElementById('contactForm').reset();
     }
 
-    /**
-     * Hides the contact modal.
-     */
-    function hideModal() {
-        contactModal.style.display = 'none';
-    }
 }
